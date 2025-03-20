@@ -65,7 +65,9 @@ void AMyBallPawn::OnMovement(const FInputActionValue& value) {
 
 void  AMyBallPawn::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 	UE_LOG(LogTemp, Warning, TEXT("COLLISION DETECTED"));
-
-	HUD->UpdateScore(8);
+	if (OtherActor->Tags.Contains("Pickup")) {
+		OtherActor->Destroy();
+		HUD->UpdateScore(8);
+	}
 }
 
