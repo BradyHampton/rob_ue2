@@ -67,7 +67,7 @@ void  AMyBallPawn::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 	UE_LOG(LogTemp, Warning, TEXT("COLLISION DETECTED"));
 	if (OtherActor->Tags.Contains("Pickup")) {
 		OtherActor->Destroy();
-		HUD->UpdateScore(8);
+		HUD->UpdateScore(1);
 	}
 }
 
